@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evan Jones — Social Compass Media</title>
+<meta name="description" content="Brand growth strategy and content direction for modern operators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A1628;
+  --navy-2:#0D1F3C;
+  --gold:#C9A856;
+  --gold-soft:rgba(201,168,86,0.18);
+  --gold-line:rgba(201,168,86,0.32);
+  --cream:#F5F0E6;
+  --cream-2:rgba(245,240,230,0.78);
+  --cream-3:rgba(245,240,230,0.55);
+  --display:'Cormorant Garamond', Georgia, serif;
+  --body:'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+html,body{background:var(--navy);color:var(--cream);font-family:var(--body);-webkit-font-smoothing:antialiased;font-weight:300;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none;transition:color .25s ease}
+a:hover{color:var(--gold)}
+.eyebrow{font-family:var(--body);font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.gold-line{display:inline-block;width:48px;height:1px;background:var(--gold);vertical-align:middle;margin:0 14px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:24px 48px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,rgba(10,22,40,.7),rgba(10,22,40,0));backdrop-filter:blur(4px);transition:background .3s}
+nav.scrolled{background:rgba(10,22,40,.92);backdrop-filter:blur(12px);padding:18px 48px}
+.nav-logo{font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:.06em;color:var(--cream)}
+.nav-logo em{font-style:normal;color:var(--gold)}
+.nav-links{display:flex;gap:42px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-2);font-weight:400}
+@media(max-width:760px){.nav-links{display:none}}
+.hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2400&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:brightness(0.42) contrast(1.05) saturate(0.85)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.55) 0%,rgba(10,22,40,.35) 40%,rgba(10,22,40,.92) 100%)}
+.hero-grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 32px;max-width:920px}
+.hero-eyebrow{margin-bottom:36px;opacity:0;animation:fadeUp 1s .2s forwards}
+.hero-name{font-family:var(--display);font-size:clamp(64px,11vw,148px);font-weight:300;line-height:.95;letter-spacing:-.015em;color:var(--cream);margin-bottom:8px;opacity:0;animation:fadeUp 1.2s .4s forwards}
+.hero-name em{font-style:italic;color:var(--gold);font-weight:400}
+.hero-tag{font-family:var(--display);font-style:italic;font-size:clamp(20px,2.4vw,26px);color:var(--cream-2);font-weight:400;margin-top:22px;letter-spacing:.01em;opacity:0;animation:fadeUp 1.2s .7s forwards}
+.hero-cta{margin-top:54px;display:inline-flex;gap:18px;opacity:0;animation:fadeUp 1.2s 1s forwards;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:18px 38px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;border-radius:0;cursor:pointer;transition:all .3s}
+.btn-gold{background:var(--gold);color:var(--navy);border:1px solid var(--gold)}
+.btn-gold:hover{background:transparent;color:var(--gold)}
+.btn-outline{background:transparent;color:var(--cream);border:1px solid var(--gold-line)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-3);font-weight:500}
+.scroll-cue::after{content:'';display:block;width:1px;height:42px;background:var(--gold-line);margin:14px auto 0;animation:scrollPulse 2s ease-in-out infinite}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+section{padding:140px 0;position:relative}
+.container{max-width:1180px;margin:0 auto;padding:0 48px}
+@media(max-width:760px){section{padding:90px 0}.container{padding:0 24px}}
+.manifesto{background:var(--navy);text-align:center}
+.manifesto .container{max-width:780px}
+.manifesto-q{font-family:var(--display);font-size:clamp(34px,5vw,56px);line-height:1.15;font-weight:300;letter-spacing:-.01em;color:var(--cream);margin:38px 0 42px}
+.manifesto-q em{font-style:italic;color:var(--gold);font-weight:400}
+.manifesto-body{font-size:17px;line-height:1.85;color:var(--cream-2);font-weight:300;max-width:620px;margin:0 auto}
+.split{background:var(--navy-2);position:relative;overflow:hidden}
+.split-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:90px;align-items:center}
+@media(max-width:880px){.split-grid{grid-template-columns:1fr;gap:48px}}
+.split-img{position:relative;aspect-ratio:4/5;background-image:url('https://images.unsplash.com/photo-1521119989659-a83eee488004?w=1200&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:grayscale(0.25) brightness(0.85)}
+.split-img::after{content:'';position:absolute;inset:0;border:1px solid var(--gold-line);transform:translate(18px,18px);pointer-events:none}
+.split-text h2{font-family:var(--display);font-size:clamp(38px,5vw,58px);line-height:1.05;font-weight:300;color:var(--cream);margin:30px 0 32px;letter-spacing:-.01em}
+.split-text h2 em{font-style:italic;color:var(--gold);font-weight:400}
+.split-text p{font-size:16px;line-height:1.85;color:var(--cream-2);margin-bottom:22px;font-weight:300}
+.split-text p:last-child{margin-bottom:0}
+.split-pullquote{font-family:var(--display);font-style:italic;font-size:22px;line-height:1.5;color:var(--gold);border-left:2px solid var(--gold);padding-left:24px;margin:34px 0;font-weight:400}
+.stats{background:var(--navy);padding:90px 0;border-top:1px solid var(--gold-soft);border-bottom:1px solid var(--gold-soft)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+@media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat{text-align:center;padding:24px;border-right:1px solid var(--gold-soft)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:var(--display);font-size:clamp(48px,6vw,72px);font-weight:300;color:var(--gold);line-height:1;letter-spacing:-.02em}
+.stat-num sup{font-size:.45em;vertical-align:super;margin-left:4px;font-weight:400}
+.stat-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--cream-3);margin-top:16px;font-weight:500}
+.services{background:var(--navy-2);text-align:center}
+.services-head{margin-bottom:72px}
+.services-head h2{font-family:var(--display);font-size:clamp(40px,5.5vw,64px);font-weight:300;color:var(--cream);margin-top:28px;letter-spacing:-.01em;line-height:1.05}
+.services-head h2 em{font-style:italic;color:var(--gold);font-weight:400}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;text-align:left;border-top:1px solid var(--gold-soft)}
+@media(max-width:760px){.services-grid{grid-template-columns:1fr}}
+.service{padding:48px 44px;border-bottom:1px solid var(--gold-soft);border-right:1px solid var(--gold-soft);transition:background .3s}
+.service:nth-child(2n){border-right:none}
+@media(max-width:760px){.service{border-right:none}}
+.service:hover{background:rgba(201,168,86,0.04)}
+.service-num{font-family:var(--display);font-size:14px;font-style:italic;color:var(--gold);margin-bottom:18px;letter-spacing:.05em}
+.service h3{font-family:var(--display);font-size:32px;font-weight:400;color:var(--cream);margin-bottom:16px;letter-spacing:-.005em}
+.service p{font-size:15px;line-height:1.75;color:var(--cream-2);font-weight:300}
+.philosophy{position:relative;height:60vh;min-height:480px;display:flex;align-items:center;justify-content:center;padding:0;text-align:center;overflow:hidden}
+.phil-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=2400&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:brightness(0.32) saturate(0.7)}
+.phil-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.55) 0%,rgba(10,22,40,.7) 100%)}
+.phil-content{position:relative;z-index:2;padding:0 40px;max-width:920px}
+.phil-q{font-family:var(--display);font-style:italic;font-size:clamp(28px,4vw,44px);line-height:1.35;color:var(--cream);font-weight:300;letter-spacing:-.005em}
+.phil-attr{margin-top:38px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.contact{background:var(--navy);text-align:center}
+.contact .container{max-width:720px}
+.contact h2{font-family:var(--display);font-size:clamp(44px,6vw,76px);font-weight:300;color:var(--cream);margin:32px 0 24px;letter-spacing:-.015em;line-height:1.05}
+.contact h2 em{font-style:italic;color:var(--gold);font-weight:400}
+.contact p{font-size:17px;line-height:1.75;color:var(--cream-2);margin-bottom:46px;font-weight:300}
+.contact-email{display:inline-block;font-family:var(--display);font-size:clamp(20px,2.6vw,28px);color:var(--gold);border-bottom:1px solid var(--gold-line);padding-bottom:6px;font-weight:400;letter-spacing:.01em}
+.contact-email:hover{border-bottom-color:var(--gold)}
+footer{background:var(--navy);padding:54px 0 36px;border-top:1px solid var(--gold-soft);text-align:center}
+.footer-socials{display:flex;justify-content:center;gap:34px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-3);margin-bottom:22px;flex-wrap:wrap}
+.footer-mark{font-family:var(--display);font-size:13px;font-style:italic;color:var(--cream-3);letter-spacing:.05em}
+.footer-copy{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-3);margin-top:14px;opacity:.6}
+</style>
+</head>
+<body>
+<nav id="nav">
+<div class="nav-logo">Evan <em>Jones</em></div>
+<div class="nav-links"><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
+</nav>
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-grain"></div>
+<div class="hero-content">
+<div class="hero-eyebrow eyebrow"><span class="gold-line"></span>Brand Strategy &amp; Content Direction<span class="gold-line"></span></div>
+<h1 class="hero-name">Evan <em>Jones</em></h1>
+<div class="hero-tag">Building audiences that move markets.</div>
+<div class="hero-cta">
+<a href="#contact" class="btn btn-gold">Start a conversation</a>
+<a href="#about" class="btn btn-outline">View work</a>
+</div>
+</div>
+<div class="scroll-cue">Scroll</div>
+</section>
+<section class="manifesto">
+<div class="container">
+<div class="eyebrow"><span class="gold-line"></span>Philosophy<span class="gold-line"></span></div>
+<div class="manifesto-q">Most brands don't have a content problem. They have a <em>conviction</em> problem.</div>
+<p class="manifesto-body">Audiences can sense when a brand is performing versus when it actually believes something. The difference shows up in the first three seconds of a post &mdash; and it's the difference between scroll-past and stop-and-read. I build the systems and editorial direction that earn attention worth keeping.</p>
+</div>
+</section>
+<section class="split" id="about">
+<div class="container">
+<div class="split-grid">
+<div class="split-img" role="img" aria-label="Editorial portrait"></div>
+<div class="split-text">
+<div class="eyebrow">About</div>
+<h2>A decade behind the lens of <em>one million</em>.</h2>
+<p>For nearly ten years, I built and operated one of the most-followed independent family media accounts in the country. Over a million followers. Hundreds of millions of views. Brand partnerships with names you know.</p>
+<div class="split-pullquote">More than the numbers, I learned what makes an audience stay &mdash; and what makes them leave.</div>
+<p>Now I bring that operating system to founders, executives, and brands ready to be taken seriously online. Not louder. Sharper.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="stats">
+<div class="container">
+<div class="stats-grid">
+<div class="stat"><div class="stat-num">1<sup>M+</sup></div><div class="stat-label">Followers Built</div></div>
+<div class="stat"><div class="stat-num">300<sup>M+</sup></div><div class="stat-label">Views Generated</div></div>
+<div class="stat"><div class="stat-num">10<sup>Yrs</sup></div><div class="stat-label">Operating</div></div>
+<div class="stat"><div class="stat-num">40<sup>+</sup></div><div class="stat-label">Brand Partners</div></div>
+</div>
+</div>
+</section>
+<section class="services" id="services">
+<div class="container">
+<div class="services-head">
+<div class="eyebrow"><span class="gold-line"></span>The Work<span class="gold-line"></span></div>
+<h2>Four ways to <em>grow well</em>.</h2>
+</div>
+<div class="services-grid">
+<div class="service"><div class="service-num">i.</div><h3>Brand Strategy</h3><p>Positioning, narrative, and the visual language that lets your audience recognize you in two seconds &mdash; across every platform.</p></div>
+<div class="service"><div class="service-num">ii.</div><h3>Content Direction</h3><p>Editorial calendars, story architecture, and creative oversight. The work that turns "posting more" into building a body of work.</p></div>
+<div class="service"><div class="service-num">iii.</div><h3>Audience Development</h3><p>Real, durable growth &mdash; built on the systems and engagement methodologies refined across a decade of operating my own audience.</p></div>
+<div class="service"><div class="service-num">iv.</div><h3>Partnerships &amp; Activations</h3><p>Brand collaborations, creator deals, and integrated campaigns. The taste to choose well, the relationships to make it happen.</p></div>
+</div>
+</div>
+</section>
+<section class="philosophy">
+<div class="phil-bg"></div>
+<div class="phil-overlay"></div>
+<div class="phil-content">
+<div class="phil-q">"Volume is easy. Resonance is the work."</div>
+<div class="phil-attr">&mdash; Operating Principle</div>
+</div>
+</section>
+<section class="contact" id="contact">
+<div class="container">
+<div class="eyebrow"><span class="gold-line"></span>Get in Touch<span class="gold-line"></span></div>
+<h2>Let's <em>begin</em>.</h2>
+<p>Selective engagements with brands and founders building for the long term. If that's you, write me directly.</p>
+<a href="mailto:evan@socialcompassmedia.com" class="contact-email">evan@socialcompassmedia.com</a>
+</div>
+</section>
+<footer>
+<div class="container">
+<div class="footer-socials">
+<a href="https://instagram.com/youngwildmefamily">Instagram</a>
+<a href="https://tiktok.com/@ywmfamily">TikTok</a>
+<a href="https://youtube.com/youngwildme">YouTube</a>
+<a href="https://pinterest.com/ywmfamily">Pinterest</a>
+</div>
+<div class="footer-mark">Social Compass Media</div>
+<div class="footer-copy">&copy; 2026 Evan Jones &middot; All Rights Reserved</div>
+</div>
+</footer>
+<script>
+const nav = document.getElementById('nav');
+const onScroll = () => { if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>
