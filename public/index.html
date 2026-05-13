@@ -3,210 +3,470 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Evan Jones — Social Compass Media</title>
-<meta name="description" content="Brand growth strategy and content direction for modern operators.">
+<title>Evan Jones &middot; Brand Growth Consultant</title>
+<meta name="description" content="Brand growth consulting. Selective engagements with businesses ready to grow.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --navy:#0A1628;
-  --navy-2:#0D1F3C;
-  --gold:#C9A856;
-  --gold-soft:rgba(201,168,86,0.18);
-  --gold-line:rgba(201,168,86,0.32);
+  --navy:#0D1F3C;
+  --navy-deep:#091529;
+  --navy-soft:#152849;
+  --navy-mid:#11253F;
+  --gold:#C8B688;
+  --gold-light:#D7C78B;
+  --gold-dark:#A89660;
+  --gold-pale:#E8DDB0;
+  --gold-soft:rgba(200,182,136,0.22);
+  --gold-line:rgba(200,182,136,0.42);
+  --gold-faint:rgba(200,182,136,0.14);
   --cream:#F5F0E6;
-  --cream-2:rgba(245,240,230,0.78);
+  --cream-2:rgba(245,240,230,0.85);
   --cream-3:rgba(245,240,230,0.55);
-  --display:'Cormorant Garamond', Georgia, serif;
+  --display:'Playfair Display', Georgia, serif;
+  --serif:'Cormorant Garamond', Georgia, serif;
   --body:'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
-html,body{background:var(--navy);color:var(--cream);font-family:var(--body);-webkit-font-smoothing:antialiased;font-weight:300;overflow-x:hidden}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none;transition:color .25s ease}
-a:hover{color:var(--gold)}
-.eyebrow{font-family:var(--body);font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500}
-.gold-line{display:inline-block;width:48px;height:1px;background:var(--gold);vertical-align:middle;margin:0 14px}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:24px 48px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,rgba(10,22,40,.7),rgba(10,22,40,0));backdrop-filter:blur(4px);transition:background .3s}
-nav.scrolled{background:rgba(10,22,40,.92);backdrop-filter:blur(12px);padding:18px 48px}
-.nav-logo{font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:.06em;color:var(--cream)}
-.nav-logo em{font-style:normal;color:var(--gold)}
-.nav-links{display:flex;gap:42px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-2);font-weight:400}
-@media(max-width:760px){.nav-links{display:none}}
-.hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2400&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:brightness(0.42) contrast(1.05) saturate(0.85)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.55) 0%,rgba(10,22,40,.35) 40%,rgba(10,22,40,.92) 100%)}
-.hero-grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")}
-.hero-content{position:relative;z-index:2;text-align:center;padding:0 32px;max-width:920px}
-.hero-eyebrow{margin-bottom:36px;opacity:0;animation:fadeUp 1s .2s forwards}
-.hero-name{font-family:var(--display);font-size:clamp(64px,11vw,148px);font-weight:300;line-height:.95;letter-spacing:-.015em;color:var(--cream);margin-bottom:8px;opacity:0;animation:fadeUp 1.2s .4s forwards}
-.hero-name em{font-style:italic;color:var(--gold);font-weight:400}
-.hero-tag{font-family:var(--display);font-style:italic;font-size:clamp(20px,2.4vw,26px);color:var(--cream-2);font-weight:400;margin-top:22px;letter-spacing:.01em;opacity:0;animation:fadeUp 1.2s .7s forwards}
-.hero-cta{margin-top:54px;display:inline-flex;gap:18px;opacity:0;animation:fadeUp 1.2s 1s forwards;flex-wrap:wrap;justify-content:center}
-.btn{display:inline-block;padding:18px 38px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;border-radius:0;cursor:pointer;transition:all .3s}
+html,body{background:var(--navy);color:var(--cream);font-family:var(--body);-webkit-font-smoothing:antialiased;font-weight:300;overflow-x:hidden;letter-spacing:.005em}
+a{color:inherit;text-decoration:none;transition:color .3s ease, border-color .3s ease}
+a:hover{color:var(--gold-light)}
+
+/* ─── PRIMITIVES ─── */
+.eyebrow{font-family:var(--body);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500;display:inline-block}
+.section-mark{font-family:var(--body);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500;display:inline-flex;align-items:center;gap:14px}
+.section-mark::before{content:'—';color:var(--gold);font-weight:300;letter-spacing:0;font-size:13px}
+.gold-rule{display:block;width:64px;height:1px;background:var(--gold);margin:24px auto;opacity:.85}
+.gold-rule.short{width:36px}
+.gold-rule.long{width:120px}
+.diamond-row{display:flex;justify-content:center;align-items:center;gap:14px;margin:28px 0}
+.diamond-row .line{width:48px;height:1px;background:var(--gold-line)}
+.diamond-row .diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);display:inline-block}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 56px;display:flex;justify-content:space-between;align-items:center;transition:all .4s cubic-bezier(.16,1,.3,1);background:transparent}
+nav.scrolled{background:rgba(13,31,60,.96);backdrop-filter:blur(14px);padding:14px 56px;border-bottom:1px solid var(--gold-faint)}
+@media(max-width:760px){nav{padding:18px 24px}nav.scrolled{padding:12px 24px}}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-mark{width:28px;height:28px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:14px;color:var(--gold);font-style:italic;font-weight:500;letter-spacing:0;line-height:1}
+.nav-name{font-family:var(--display);font-size:15px;color:var(--cream);letter-spacing:.32em;text-transform:uppercase;font-weight:500}
+.nav-links{display:flex;gap:38px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-2);font-weight:500}
+@media(max-width:760px){.nav-links{display:none}.nav-name{font-size:13px;letter-spacing:.24em}}
+.nav-links a:hover{color:var(--gold)}
+
+/* ─── HERO ─── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:120px 32px 80px;background:var(--navy-deep)}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=2400&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:brightness(0.45) saturate(0.6) sepia(0.15) hue-rotate(195deg);z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(13,31,60,0.55) 0%, rgba(13,31,60,0.72) 50%, rgba(9,21,41,0.92) 100%);z-index:1}
+.hero-frame{position:absolute;top:30px;left:30px;right:30px;bottom:30px;border:1px solid var(--gold-faint);pointer-events:none;z-index:2}
+@media(max-width:760px){.hero-frame{top:18px;left:18px;right:18px;bottom:18px}}
+.hero-frame::before,.hero-frame::after,.hero-frame > span::before,.hero-frame > span::after{content:'';position:absolute;width:12px;height:12px;border-color:var(--gold);border-style:solid;border-width:0}
+.hero-frame::before{top:-1px;left:-1px;border-top-width:1px;border-left-width:1px}
+.hero-frame::after{top:-1px;right:-1px;border-top-width:1px;border-right-width:1px}
+.hero-frame > span{position:absolute;inset:0;display:block;pointer-events:none}
+.hero-frame > span::before{bottom:-1px;left:-1px;border-bottom-width:1px;border-left-width:1px}
+.hero-frame > span::after{bottom:-1px;right:-1px;border-bottom-width:1px;border-right-width:1px}
+
+.hero-content{position:relative;z-index:3;text-align:center;max-width:760px;width:100%}
+.monogram{display:inline-flex;align-items:center;justify-content:center;width:88px;height:88px;border:1px solid var(--gold);position:relative;margin:0 auto 38px;opacity:0;animation:fadeIn 1.2s .1s forwards}
+.monogram::before{content:'';position:absolute;inset:6px;border:1px solid var(--gold-soft)}
+.monogram-e{font-family:var(--display);font-size:42px;font-style:italic;color:var(--gold);font-weight:500;line-height:1;letter-spacing:0;position:relative;z-index:2}
+@media(max-width:760px){.monogram{width:72px;height:72px;margin-bottom:28px}.monogram-e{font-size:34px}}
+
+.hero-name{font-family:var(--display);font-size:clamp(56px,9vw,108px);font-weight:400;line-height:1.02;letter-spacing:.04em;color:var(--cream);text-transform:uppercase;margin:0 0 18px;opacity:0;animation:fadeUp 1.2s .3s forwards}
+.hero-title{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,30px);color:var(--gold);font-weight:400;letter-spacing:.04em;margin:0 0 36px;opacity:0;animation:fadeUp 1.2s .5s forwards}
+.hero-tagline{font-family:var(--body);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-2);font-weight:400;margin:0 0 42px;line-height:1.8;opacity:0;animation:fadeUp 1.2s .7s forwards}
+.hero-tagline .sep{color:var(--gold);margin:0 12px;font-weight:400}
+.hero-contact{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--cream-2);margin-bottom:42px;opacity:0;animation:fadeUp 1.2s .85s forwards;line-height:1.7}
+.hero-contact a{border-bottom:1px solid var(--gold-line);padding-bottom:2px}
+.hero-contact a:hover{border-bottom-color:var(--gold)}
+.hero-contact .sep{color:var(--gold);margin:0 14px;font-style:normal;font-size:10px;vertical-align:middle;letter-spacing:.4em}
+@media(max-width:760px){.hero-contact{font-size:15px}.hero-contact .sep{display:block;margin:8px auto}}
+
+.hero-cta{display:inline-flex;gap:16px;opacity:0;animation:fadeUp 1.2s 1.05s forwards;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:16px 36px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all .35s;border-radius:0;font-family:var(--body)}
 .btn-gold{background:var(--gold);color:var(--navy);border:1px solid var(--gold)}
 .btn-gold:hover{background:transparent;color:var(--gold)}
 .btn-outline{background:transparent;color:var(--cream);border:1px solid var(--gold-line)}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-3);font-weight:500}
-.scroll-cue::after{content:'';display:block;width:1px;height:42px;background:var(--gold-line);margin:14px auto 0;animation:scrollPulse 2s ease-in-out infinite}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
-section{padding:140px 0;position:relative}
-.container{max-width:1180px;margin:0 auto;padding:0 48px}
-@media(max-width:760px){section{padding:90px 0}.container{padding:0 24px}}
-.manifesto{background:var(--navy);text-align:center}
-.manifesto .container{max-width:780px}
-.manifesto-q{font-family:var(--display);font-size:clamp(34px,5vw,56px);line-height:1.15;font-weight:300;letter-spacing:-.01em;color:var(--cream);margin:38px 0 42px}
-.manifesto-q em{font-style:italic;color:var(--gold);font-weight:400}
-.manifesto-body{font-size:17px;line-height:1.85;color:var(--cream-2);font-weight:300;max-width:620px;margin:0 auto}
-.split{background:var(--navy-2);position:relative;overflow:hidden}
-.split-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:90px;align-items:center}
-@media(max-width:880px){.split-grid{grid-template-columns:1fr;gap:48px}}
-.split-img{position:relative;aspect-ratio:4/5;background-image:url('https://images.unsplash.com/photo-1521119989659-a83eee488004?w=1200&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:grayscale(0.25) brightness(0.85)}
-.split-img::after{content:'';position:absolute;inset:0;border:1px solid var(--gold-line);transform:translate(18px,18px);pointer-events:none}
-.split-text h2{font-family:var(--display);font-size:clamp(38px,5vw,58px);line-height:1.05;font-weight:300;color:var(--cream);margin:30px 0 32px;letter-spacing:-.01em}
-.split-text h2 em{font-style:italic;color:var(--gold);font-weight:400}
-.split-text p{font-size:16px;line-height:1.85;color:var(--cream-2);margin-bottom:22px;font-weight:300}
-.split-text p:last-child{margin-bottom:0}
-.split-pullquote{font-family:var(--display);font-style:italic;font-size:22px;line-height:1.5;color:var(--gold);border-left:2px solid var(--gold);padding-left:24px;margin:34px 0;font-weight:400}
-.stats{background:var(--navy);padding:90px 0;border-top:1px solid var(--gold-soft);border-bottom:1px solid var(--gold-soft)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-@media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
-.stat{text-align:center;padding:24px;border-right:1px solid var(--gold-soft)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ─── STATS BAR ─── */
+.stats{background:var(--navy-deep);padding:64px 0;border-top:1px solid var(--gold-faint);border-bottom:1px solid var(--gold-faint)}
+.stats-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:0 32px}
+@media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:32px 0}}
+.stat{text-align:center;padding:0 24px;border-right:1px solid var(--gold-faint)}
 .stat:last-child{border-right:none}
-.stat-num{font-family:var(--display);font-size:clamp(48px,6vw,72px);font-weight:300;color:var(--gold);line-height:1;letter-spacing:-.02em}
-.stat-num sup{font-size:.45em;vertical-align:super;margin-left:4px;font-weight:400}
-.stat-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--cream-3);margin-top:16px;font-weight:500}
-.services{background:var(--navy-2);text-align:center}
-.services-head{margin-bottom:72px}
-.services-head h2{font-family:var(--display);font-size:clamp(40px,5.5vw,64px);font-weight:300;color:var(--cream);margin-top:28px;letter-spacing:-.01em;line-height:1.05}
-.services-head h2 em{font-style:italic;color:var(--gold);font-weight:400}
-.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;text-align:left;border-top:1px solid var(--gold-soft)}
-@media(max-width:760px){.services-grid{grid-template-columns:1fr}}
-.service{padding:48px 44px;border-bottom:1px solid var(--gold-soft);border-right:1px solid var(--gold-soft);transition:background .3s}
-.service:nth-child(2n){border-right:none}
-@media(max-width:760px){.service{border-right:none}}
-.service:hover{background:rgba(201,168,86,0.04)}
-.service-num{font-family:var(--display);font-size:14px;font-style:italic;color:var(--gold);margin-bottom:18px;letter-spacing:.05em}
-.service h3{font-family:var(--display);font-size:32px;font-weight:400;color:var(--cream);margin-bottom:16px;letter-spacing:-.005em}
-.service p{font-size:15px;line-height:1.75;color:var(--cream-2);font-weight:300}
-.philosophy{position:relative;height:60vh;min-height:480px;display:flex;align-items:center;justify-content:center;padding:0;text-align:center;overflow:hidden}
-.phil-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=2400&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:brightness(0.32) saturate(0.7)}
-.phil-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.55) 0%,rgba(10,22,40,.7) 100%)}
-.phil-content{position:relative;z-index:2;padding:0 40px;max-width:920px}
-.phil-q{font-family:var(--display);font-style:italic;font-size:clamp(28px,4vw,44px);line-height:1.35;color:var(--cream);font-weight:300;letter-spacing:-.005em}
-.phil-attr{margin-top:38px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500}
-.contact{background:var(--navy);text-align:center}
-.contact .container{max-width:720px}
-.contact h2{font-family:var(--display);font-size:clamp(44px,6vw,76px);font-weight:300;color:var(--cream);margin:32px 0 24px;letter-spacing:-.015em;line-height:1.05}
+@media(max-width:760px){.stat:nth-child(2){border-right:none}.stat:nth-child(-n+2){border-bottom:1px solid var(--gold-faint);padding-bottom:32px}.stat:nth-child(n+3){padding-top:0}}
+.stat-num{font-family:var(--display);font-size:clamp(44px,5.5vw,64px);font-weight:400;color:var(--gold);line-height:1;letter-spacing:-.01em;margin-bottom:14px}
+.stat-num sup{font-size:.5em;vertical-align:super;margin-left:2px;font-weight:400;color:var(--gold-light)}
+.stat-label{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-3);font-weight:500;line-height:1.4}
+
+/* ─── TRUSTED BY ─── */
+.trusted{background:var(--navy);padding:90px 0;text-align:center;border-bottom:1px solid var(--gold-faint)}
+.trusted .section-mark{margin-bottom:32px}
+.trusted h2{font-family:var(--display);font-size:clamp(28px,3.6vw,40px);font-weight:400;color:var(--cream);margin-bottom:48px;letter-spacing:.01em;line-height:1.2}
+.trusted-grid{max-width:980px;margin:0 auto;padding:0 32px;display:flex;justify-content:center;align-items:center;gap:64px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-style:italic;color:var(--gold);font-size:30px;font-weight:500;letter-spacing:.01em;opacity:.95}
+.brand.uppercase{font-style:normal;text-transform:uppercase;letter-spacing:.18em;font-weight:500;font-size:24px}
+.brand.small{font-size:15px;font-style:normal;text-transform:uppercase;letter-spacing:.28em;color:var(--gold);opacity:.7;font-weight:400}
+.brand-card{background:#F5F0E6;padding:18px 28px;border-radius:6px;display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;box-shadow:0 2px 8px rgba(0,0,0,0.18);transition:transform .3s,box-shadow .3s}
+.brand-card:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,0.22)}
+.brand-card svg{height:44px;width:auto;max-width:100%;display:block}
+.trusted-plus{margin-top:46px;font-family:var(--display);font-style:italic;font-size:42px;color:var(--gold);font-weight:400;letter-spacing:.005em;line-height:1.15}
+@media(max-width:760px){.trusted-grid{gap:18px}.brand-card{min-width:160px;height:68px;padding:14px 22px}.brand-card svg{height:34px}.trusted-plus{font-size:28px;margin-top:32px}}
+
+/* ─── SECTION SHELL ─── */
+section.s{padding:130px 0;position:relative}
+.container{max-width:1080px;margin:0 auto;padding:0 56px}
+.container-sm{max-width:780px;margin:0 auto;padding:0 56px}
+@media(max-width:760px){section.s{padding:80px 0}.container,.container-sm{padding:0 24px}}
+
+.section-head{text-align:center;margin-bottom:64px}
+.section-head .section-mark{margin-bottom:22px}
+.section-head h2{font-family:var(--display);font-size:clamp(34px,4.6vw,54px);font-weight:400;color:var(--cream);line-height:1.15;letter-spacing:-.005em;margin:0}
+.section-head h2 em{font-family:var(--display);font-style:italic;color:var(--gold);font-weight:400}
+.section-head .subhead{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--cream-2);margin-top:18px}
+
+.prose{font-family:var(--body);font-size:16px;line-height:1.9;color:var(--cream-2);font-weight:300}
+.prose p{margin-bottom:22px}
+.prose p:last-child{margin-bottom:0}
+.prose strong{color:var(--cream);font-weight:500}
+
+/* ─── ALT SECTIONS ─── */
+.s-alt{background:var(--navy-deep)}
+.s-mid{background:var(--navy-mid)}
+
+/* ─── CREDENTIALS — two-column with gold center divider ─── */
+.two-col{display:grid;grid-template-columns:1fr 1px 1fr;gap:64px;align-items:start}
+.two-col .divider{width:1px;background:var(--gold-faint);height:100%;justify-self:center;min-height:280px}
+@media(max-width:840px){.two-col{grid-template-columns:1fr;gap:48px}.two-col .divider{display:none}}
+.col-h{font-family:var(--display);font-size:22px;color:var(--gold);margin-bottom:18px;font-weight:500;letter-spacing:.005em}
+
+/* ─── OPPORTUNITY ─── */
+.case-card{background:var(--navy);border:1px solid var(--gold-line);padding:48px 56px;margin:48px 0;position:relative}
+.case-card::before,.case-card::after{content:'';position:absolute;width:14px;height:14px;border:1px solid var(--gold);background:var(--navy);transform:rotate(45deg)}
+.case-card::before{top:-7px;left:50%;margin-left:-7px}
+.case-card::after{bottom:-7px;left:50%;margin-left:-7px}
+.case-h{font-family:var(--display);font-style:italic;color:var(--gold);font-size:20px;letter-spacing:.04em;margin-bottom:14px}
+.case-body{font-family:var(--serif);font-size:21px;line-height:1.55;color:var(--cream);font-weight:400;font-style:italic}
+@media(max-width:760px){.case-card{padding:32px 28px}.case-body{font-size:18px}}
+
+.benefits{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:24px 56px}
+@media(max-width:760px){.benefits{grid-template-columns:1fr;gap:18px}}
+.benefit{display:flex;gap:14px;padding-bottom:20px;border-bottom:1px solid var(--gold-faint);font-size:15px;line-height:1.6;color:var(--cream-2)}
+.benefit::before{content:'—';color:var(--gold);font-weight:300;flex-shrink:0}
+
+/* ─── WHAT WE DO ─── */
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--gold-faint);border-left:1px solid var(--gold-faint);margin-top:24px}
+@media(max-width:760px){.services{grid-template-columns:1fr}}
+.service{padding:44px 36px;border-right:1px solid var(--gold-faint);border-bottom:1px solid var(--gold-faint);transition:background .3s}
+.service:hover{background:rgba(200,182,136,0.03)}
+.service-no{font-family:var(--display);font-style:italic;color:var(--gold);font-size:14px;letter-spacing:.05em;margin-bottom:14px;opacity:.85}
+.service h3{font-family:var(--display);font-size:24px;font-weight:500;color:var(--cream);margin-bottom:12px;letter-spacing:.005em}
+.service p{font-family:var(--body);font-size:14px;line-height:1.7;color:var(--cream-2);font-weight:300}
+
+/* ─── FIT / COMMITMENT — bulleted lists ─── */
+.list-block{max-width:680px;margin:0 auto}
+.list-row{padding:24px 0;border-bottom:1px solid var(--gold-faint);font-family:var(--serif);font-size:21px;line-height:1.5;color:var(--cream);font-weight:400;display:flex;gap:18px;align-items:baseline}
+.list-row:last-child{border-bottom:none}
+.list-row::before{content:'—';color:var(--gold);font-weight:400;font-size:18px;flex-shrink:0}
+.list-foot{margin-top:34px;text-align:center;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--gold)}
+
+/* ─── ENGAGEMENT DETAILS — 3-column ─── */
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--gold-faint);border-bottom:1px solid var(--gold-faint);margin-top:24px}
+@media(max-width:760px){.three-col{grid-template-columns:1fr}}
+.detail{padding:48px 36px;text-align:center;border-right:1px solid var(--gold-faint)}
+.detail:last-child{border-right:none}
+@media(max-width:760px){.detail{border-right:none;border-bottom:1px solid var(--gold-faint)}.detail:last-child{border-bottom:none}}
+.detail-label{font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px}
+.detail-body{font-family:var(--display);font-size:22px;color:var(--cream);font-weight:400;line-height:1.4}
+.detail-sub{font-family:var(--serif);font-style:italic;color:var(--cream-3);font-size:15px;margin-top:8px}
+
+/* ─── CONTACT ─── */
+.contact{background:var(--navy-deep);padding:130px 0;text-align:center}
+.contact .section-mark{margin-bottom:28px}
+.contact h2{font-family:var(--display);font-size:clamp(56px,8vw,96px);font-weight:400;color:var(--cream);margin-bottom:24px;letter-spacing:-.005em;line-height:1}
 .contact h2 em{font-style:italic;color:var(--gold);font-weight:400}
-.contact p{font-size:17px;line-height:1.75;color:var(--cream-2);margin-bottom:46px;font-weight:300}
-.contact-email{display:inline-block;font-family:var(--display);font-size:clamp(20px,2.6vw,28px);color:var(--gold);border-bottom:1px solid var(--gold-line);padding-bottom:6px;font-weight:400;letter-spacing:.01em}
-.contact-email:hover{border-bottom-color:var(--gold)}
-footer{background:var(--navy);padding:54px 0 36px;border-top:1px solid var(--gold-soft);text-align:center}
-.footer-socials{display:flex;justify-content:center;gap:34px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-3);margin-bottom:22px;flex-wrap:wrap}
-.footer-mark{font-family:var(--display);font-size:13px;font-style:italic;color:var(--cream-3);letter-spacing:.05em}
-.footer-copy{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-3);margin-top:14px;opacity:.6}
+.contact-sub{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--cream-2);margin-bottom:48px}
+.contact-info{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.contact-info a{font-family:var(--display);font-size:clamp(20px,2.4vw,28px);color:var(--gold);border-bottom:1px solid var(--gold-line);padding-bottom:4px;font-weight:400}
+.contact-info a:hover{border-bottom-color:var(--gold);color:var(--gold-light)}
+.contact-info .sep{color:var(--gold-faint);font-size:18px}
+@media(max-width:760px){.contact-info{gap:14px}.contact-info .sep{display:none}}
+
+/* ─── FOOTER ─── */
+footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(--gold-faint);text-align:center}
+.footer-socials{display:flex;justify-content:center;gap:36px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-3);margin-bottom:26px;flex-wrap:wrap;font-weight:500}
+.footer-socials a:hover{color:var(--gold)}
+.footer-mark{font-family:var(--display);font-style:italic;color:var(--cream-3);font-size:14px;letter-spacing:.04em;margin-bottom:8px}
+.footer-copy{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-3);opacity:.6;font-weight:500}
 </style>
 </head>
 <body>
+
 <nav id="nav">
-<div class="nav-logo">Evan <em>Jones</em></div>
-<div class="nav-links"><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
+  <div class="nav-logo">
+    <span class="nav-mark">E</span>
+    <span class="nav-name">Evan Jones</span>
+  </div>
+  <div class="nav-links">
+    <a href="#credentials">Credentials</a>
+    <a href="#engagement">The Work</a>
+    <a href="#fit">Fit</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
+
+<!-- ─── HERO ─── -->
 <section class="hero">
-<div class="hero-bg"></div>
-<div class="hero-overlay"></div>
-<div class="hero-grain"></div>
-<div class="hero-content">
-<div class="hero-eyebrow eyebrow"><span class="gold-line"></span>Brand Strategy &amp; Content Direction<span class="gold-line"></span></div>
-<h1 class="hero-name">Evan <em>Jones</em></h1>
-<div class="hero-tag">Building audiences that move markets.</div>
-<div class="hero-cta">
-<a href="#contact" class="btn btn-gold">Start a conversation</a>
-<a href="#about" class="btn btn-outline">View work</a>
-</div>
-</div>
-<div class="scroll-cue">Scroll</div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-frame"><span></span></div>
+  <div class="hero-content">
+    <div class="monogram"><span class="monogram-e">E</span></div>
+    <h1 class="hero-name">Evan Jones</h1>
+    <div class="hero-title">Brand Growth Consultant</div>
+    <div class="hero-tagline">Brand Growth Consulting<span class="sep">&middot;</span>Social Media Strategy</div>
+    <div class="hero-contact">
+      <a href="tel:6306992928">630-699-2928</a>
+      <span class="sep">·</span>
+      <a href="https://youngwildme.com">youngwildme.com</a>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-gold">Begin a Conversation</a>
+      <a href="#credentials" class="btn btn-outline">Our Approach</a>
+    </div>
+  </div>
 </section>
-<section class="manifesto">
-<div class="container">
-<div class="eyebrow"><span class="gold-line"></span>Philosophy<span class="gold-line"></span></div>
-<div class="manifesto-q">Most brands don't have a content problem. They have a <em>conviction</em> problem.</div>
-<p class="manifesto-body">Audiences can sense when a brand is performing versus when it actually believes something. The difference shows up in the first three seconds of a post &mdash; and it's the difference between scroll-past and stop-and-read. I build the systems and editorial direction that earn attention worth keeping.</p>
-</div>
-</section>
-<section class="split" id="about">
-<div class="container">
-<div class="split-grid">
-<div class="split-img" role="img" aria-label="Editorial portrait"></div>
-<div class="split-text">
-<div class="eyebrow">About</div>
-<h2>A decade behind the lens of <em>one million</em>.</h2>
-<p>For nearly ten years, I built and operated one of the most-followed independent family media accounts in the country. Over a million followers. Hundreds of millions of views. Brand partnerships with names you know.</p>
-<div class="split-pullquote">More than the numbers, I learned what makes an audience stay &mdash; and what makes them leave.</div>
-<p>Now I bring that operating system to founders, executives, and brands ready to be taken seriously online. Not louder. Sharper.</p>
-</div>
-</div>
-</div>
-</section>
+
+<!-- ─── STATS BAR ─── -->
 <section class="stats">
-<div class="container">
-<div class="stats-grid">
-<div class="stat"><div class="stat-num">1<sup>M+</sup></div><div class="stat-label">Followers Built</div></div>
-<div class="stat"><div class="stat-num">300<sup>M+</sup></div><div class="stat-label">Views Generated</div></div>
-<div class="stat"><div class="stat-num">10<sup>Yrs</sup></div><div class="stat-label">Operating</div></div>
-<div class="stat"><div class="stat-num">40<sup>+</sup></div><div class="stat-label">Brand Partners</div></div>
-</div>
-</div>
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num">1.5<sup>M</sup></div><div class="stat-label">Combined Followers</div></div>
+    <div class="stat"><div class="stat-num">10<sup>Yrs</sup></div><div class="stat-label">Experience</div></div>
+    <div class="stat"><div class="stat-num">5<sup>+</sup></div><div class="stat-label">Active Platforms</div></div>
+    <div class="stat"><div class="stat-num" style="font-size:34px;letter-spacing:.005em">Select</div><div class="stat-label">Client Roster</div></div>
+  </div>
 </section>
-<section class="services" id="services">
-<div class="container">
-<div class="services-head">
-<div class="eyebrow"><span class="gold-line"></span>The Work<span class="gold-line"></span></div>
-<h2>Four ways to <em>grow well</em>.</h2>
-</div>
-<div class="services-grid">
-<div class="service"><div class="service-num">i.</div><h3>Brand Strategy</h3><p>Positioning, narrative, and the visual language that lets your audience recognize you in two seconds &mdash; across every platform.</p></div>
-<div class="service"><div class="service-num">ii.</div><h3>Content Direction</h3><p>Editorial calendars, story architecture, and creative oversight. The work that turns "posting more" into building a body of work.</p></div>
-<div class="service"><div class="service-num">iii.</div><h3>Audience Development</h3><p>Real, durable growth &mdash; built on the systems and engagement methodologies refined across a decade of operating my own audience.</p></div>
-<div class="service"><div class="service-num">iv.</div><h3>Partnerships &amp; Activations</h3><p>Brand collaborations, creator deals, and integrated campaigns. The taste to choose well, the relationships to make it happen.</p></div>
-</div>
-</div>
+
+<!-- ─── TRUSTED BY ─── -->
+<section class="trusted">
+  <div class="section-mark">Trusted By</div>
+  <h2>Partnerships with names you know.</h2>
+  <div class="trusted-grid">
+    <div class="brand-card" aria-label="Walmart">
+      <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" role="img"><title>Walmart</title>
+        <g transform="translate(25 25)">
+          <g stroke="#FFC220" stroke-width="4" stroke-linecap="round">
+            <line x1="0" y1="-16" x2="0" y2="-6"/>
+            <line x1="0" y1="16" x2="0" y2="6"/>
+            <line x1="-16" y1="0" x2="-6" y2="0"/>
+            <line x1="16" y1="0" x2="6" y2="0"/>
+            <line x1="-11.3" y1="-11.3" x2="-4.2" y2="-4.2"/>
+            <line x1="11.3" y1="11.3" x2="4.2" y2="4.2"/>
+            <line x1="-11.3" y1="11.3" x2="-4.2" y2="4.2"/>
+            <line x1="11.3" y1="-11.3" x2="4.2" y2="-4.2"/>
+          </g>
+        </g>
+        <text x="60" y="33" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#0071CE" letter-spacing="-0.3">Walmart</text>
+      </svg>
+    </div>
+    <div class="brand-card" aria-label="Target">
+      <svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" role="img"><title>Target</title>
+        <circle cx="25" cy="25" r="18" fill="#CC0000"/>
+        <circle cx="25" cy="25" r="12" fill="#FFFFFF"/>
+        <circle cx="25" cy="25" r="6" fill="#CC0000"/>
+        <text x="55" y="33" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#CC0000" letter-spacing="2">TARGET</text>
+      </svg>
+    </div>
+    <div class="brand-card" aria-label="Procter and Gamble">
+      <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" role="img"><title>Procter &amp; Gamble</title>
+        <circle cx="30" cy="30" r="24" fill="#003DA5"/>
+        <text x="30" y="37" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="500" font-style="italic" fill="#FFFFFF">P&amp;G</text>
+        <text x="68" y="28" font-family="Georgia, serif" font-size="15" font-weight="400" fill="#003DA5" letter-spacing="0.3">Procter</text>
+        <text x="68" y="46" font-family="Georgia, serif" font-size="15" font-weight="400" fill="#003DA5" letter-spacing="0.3">&amp; Gamble</text>
+      </svg>
+    </div>
+  </div>
+  <div class="trusted-plus">+ Fortune 500 Brands</div>
 </section>
-<section class="philosophy">
-<div class="phil-bg"></div>
-<div class="phil-overlay"></div>
-<div class="phil-content">
-<div class="phil-q">"Volume is easy. Resonance is the work."</div>
-<div class="phil-attr">&mdash; Operating Principle</div>
-</div>
+
+<!-- ─── CREDENTIALS ─── -->
+<section class="s" id="credentials">
+  <div class="container-sm">
+    <div class="section-head">
+      <div class="section-mark">Our Credentials</div>
+      <h2>Nearly a decade.<br/><em>Nearly 1.5 million followers.</em></h2>
+    </div>
+    <div class="prose">
+      <p>Over the past ten years, we built a social media presence from zero to nearly 1.5 million followers &mdash; entirely through organic growth. <strong>No purchased followers. No shortcuts.</strong></p>
+      <p>That earned us partnerships with Walmart, Target, Procter &amp; Gamble, and other Fortune 500 companies who recognized the real audience we built.</p>
+      <p>That proven system is now available to your business.</p>
+      <p>Most people selling social media services have never built an audience themselves. We have &mdash; and we know exactly what it takes and what it produces.</p>
+      <p>With <strong>15 years as a business banker at Chase</strong>, we understand your margins, your customers, and where online presence moves the needle most.</p>
+      <p>We bring both the expertise and the business fluency.</p>
+    </div>
+  </div>
 </section>
+
+<!-- ─── THE OPPORTUNITY ─── -->
+<section class="s s-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-mark">The Opportunity</div>
+      <h2>What a real online presence<br/><em>does for your business.</em></h2>
+    </div>
+    <div class="case-card">
+      <div class="case-h">Case in Point &mdash; Scrub Daddy</div>
+      <div class="case-body">A sponge company. Through social media alone they reached over $220 million in annual revenue. The product never changed. The audience did.</div>
+    </div>
+    <p class="prose" style="text-align:center;max-width:680px;margin:48px auto 0">A strong online presence commands higher prices, attracts better employees, and builds credibility that closes deals before the first conversation.</p>
+    <div class="benefits">
+      <div class="benefit">Reach customers who would never find you otherwise</div>
+      <div class="benefit">Build trust before a prospect ever calls</div>
+      <div class="benefit">Attract better employees who research you first</div>
+      <div class="benefit">Create new revenue through direct audience relationships</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT WE DO ─── -->
+<section class="s" id="engagement">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-mark">What We Do</div>
+      <h2>The engagement.</h2>
+      <div class="subhead">Two dedicated hours per week &mdash; every week.</div>
+    </div>
+    <div class="services">
+      <div class="service">
+        <div class="service-no">i.</div>
+        <h3>Weekly Strategy Sessions</h3>
+        <p>Planning, concepts, and creative direction. Every week, without exception.</p>
+      </div>
+      <div class="service">
+        <div class="service-no">ii.</div>
+        <h3>Custom Content Calendar</h3>
+        <p>Built around your brand, your industry, and your goals &mdash; not a template.</p>
+      </div>
+      <div class="service">
+        <div class="service-no">iii.</div>
+        <h3>Consistent Upload Schedule</h3>
+        <p>Accountability-driven posting cadence. Consistency is what compounds.</p>
+      </div>
+      <div class="service">
+        <div class="service-no">iv.</div>
+        <h3>Multi-Platform Strategy</h3>
+        <p>Instagram, TikTok, Facebook, Pinterest &mdash; each one used the way it should be used.</p>
+      </div>
+      <div class="service" style="grid-column:1/-1">
+        <div class="service-no">v.</div>
+        <h3>Monthly Progress Reviews</h3>
+        <p>Ongoing refinement against real results. We measure what matters and adjust the plan accordingly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHO THIS IS FOR ─── -->
+<section class="s s-alt" id="fit">
+  <div class="container-sm">
+    <div class="section-head">
+      <div class="section-mark">Who This Is For</div>
+      <h2>The right fit.</h2>
+      <div class="subhead">We are selective. This works when the fit is right.</div>
+    </div>
+    <div class="list-block">
+      <div class="list-row">Established businesses with strong revenue</div>
+      <div class="list-row">Companies with little or no social media presence</div>
+      <div class="list-row">Owners committed to a long-term brand strategy</div>
+      <div class="list-row">Businesses ready to become the name everyone knows</div>
+    </div>
+    <div class="list-foot">Currently accepting a select number of new clients.</div>
+  </div>
+</section>
+
+<!-- ─── COMMITMENT ─── -->
+<section class="s">
+  <div class="container-sm">
+    <div class="section-head">
+      <div class="section-mark">Our Commitment</div>
+      <h2>What you can <em>expect</em>.</h2>
+    </div>
+    <div class="list-block">
+      <div class="list-row">Honest guidance &mdash; proven by nearly 1.5 million followers</div>
+      <div class="list-row">Full transparency &mdash; you always know where things stand</div>
+      <div class="list-row">A long-term partner &mdash; not a vendor</div>
+    </div>
+    <div class="list-foot">Organic growth takes time. Six to twelve months before real momentum.<br/>We will never overpromise.</div>
+  </div>
+</section>
+
+<!-- ─── ENGAGEMENT DETAILS ─── -->
+<section class="s s-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-mark">The Engagement Details</div>
+      <h2>A focused partnership.</h2>
+    </div>
+    <div class="three-col">
+      <div class="detail">
+        <div class="detail-label">Dedicated Sessions</div>
+        <div class="detail-body">Weekly sessions</div>
+        <div class="detail-sub">Regular, focused collaboration</div>
+      </div>
+      <div class="detail">
+        <div class="detail-label">Contract Term</div>
+        <div class="detail-body">Six months minimum</div>
+        <div class="detail-sub">Time for real momentum</div>
+      </div>
+      <div class="detail">
+        <div class="detail-label">Client Roster</div>
+        <div class="detail-body">A select few</div>
+        <div class="detail-sub">One-on-one partnerships, by intention</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
 <section class="contact" id="contact">
-<div class="container">
-<div class="eyebrow"><span class="gold-line"></span>Get in Touch<span class="gold-line"></span></div>
-<h2>Let's <em>begin</em>.</h2>
-<p>Selective engagements with brands and founders building for the long term. If that's you, write me directly.</p>
-<a href="mailto:evan@socialcompassmedia.com" class="contact-email">evan@socialcompassmedia.com</a>
-</div>
+  <div class="container-sm">
+    <div class="section-mark">Get in Touch</div>
+    <h2>Let's <em>talk</em>.</h2>
+    <div class="contact-sub">Meeting with select businesses ready to grow.</div>
+    <div class="contact-info">
+      <a href="mailto:Evan@socialcompassmedia.com">Evan@socialcompassmedia.com</a>
+      <span class="sep">·</span>
+      <a href="tel:6306992928">630-699-2928</a>
+    </div>
+    <div class="diamond-row">
+      <span class="line"></span>
+      <span class="diamond"></span>
+      <span class="line"></span>
+    </div>
+  </div>
 </section>
+
+<!-- ─── FOOTER ─── -->
 <footer>
-<div class="container">
-<div class="footer-socials">
-<a href="https://instagram.com/youngwildmefamily">Instagram</a>
-<a href="https://tiktok.com/@ywmfamily">TikTok</a>
-<a href="https://youtube.com/youngwildme">YouTube</a>
-<a href="https://pinterest.com/ywmfamily">Pinterest</a>
-</div>
-<div class="footer-mark">Social Compass Media</div>
-<div class="footer-copy">&copy; 2026 Evan Jones &middot; All Rights Reserved</div>
-</div>
+  <div class="footer-socials">
+    <a href="https://instagram.com/youngwildmefamily">Instagram</a>
+    <a href="https://tiktok.com/@ywmfamily">TikTok</a>
+    <a href="https://youtube.com/youngwildme">YouTube</a>
+    <a href="https://pinterest.com/ywmfamily">Pinterest</a>
+  </div>
+  <div class="footer-mark">Evan Jones &middot; Social Compass Media</div>
+  <div class="footer-copy">&copy; 2026 &middot; All Rights Reserved</div>
 </footer>
+
 <script>
 const nav = document.getElementById('nav');
-const onScroll = () => { if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+const onScroll = () => { if (window.scrollY > 50) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 </script>
