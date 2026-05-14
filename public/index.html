@@ -33,10 +33,10 @@ html,body{background:var(--navy);color:var(--cream);font-family:var(--body);-web
 a{color:inherit;text-decoration:none;transition:color .3s ease, border-color .3s ease}
 a:hover{color:var(--gold-light)}
 
-/* ─── PRIMITIVES ─── */
+/* âââ PRIMITIVES âââ */
 .eyebrow{font-family:var(--body);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500;display:inline-block}
 .section-mark{font-family:var(--body);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500;display:inline-flex;align-items:center;gap:14px}
-.section-mark::before{content:'—';color:var(--gold);font-weight:300;letter-spacing:0;font-size:13px}
+.section-mark::before{content:'â';color:var(--gold);font-weight:300;letter-spacing:0;font-size:13px}
 .gold-rule{display:block;width:64px;height:1px;background:var(--gold);margin:24px auto;opacity:.85}
 .gold-rule.short{width:36px}
 .gold-rule.long{width:120px}
@@ -44,7 +44,7 @@ a:hover{color:var(--gold-light)}
 .diamond-row .line{width:48px;height:1px;background:var(--gold-line)}
 .diamond-row .diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);display:inline-block}
 
-/* ─── NAV ─── */
+/* âââ NAV âââ */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 56px;display:flex;justify-content:space-between;align-items:center;transition:all .4s cubic-bezier(.16,1,.3,1);background:transparent}
 nav.scrolled{background:rgba(13,31,60,.96);backdrop-filter:blur(14px);padding:14px 56px;border-bottom:1px solid var(--gold-faint)}
 @media(max-width:760px){nav{padding:18px 24px}nav.scrolled{padding:12px 24px}}
@@ -55,7 +55,7 @@ nav.scrolled{background:rgba(13,31,60,.96);backdrop-filter:blur(14px);padding:14
 @media(max-width:760px){.nav-links{display:none}.nav-name{font-size:13px;letter-spacing:.24em}}
 .nav-links a:hover{color:var(--gold)}
 
-/* ─── HERO ─── */
+/* âââ HERO âââ */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:120px 32px 80px;background:var(--navy-deep)}
 .hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=2400&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:brightness(0.45) saturate(0.6) sepia(0.15) hue-rotate(195deg);z-index:0}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(13,31,60,0.55) 0%, rgba(13,31,60,0.72) 50%, rgba(9,21,41,0.92) 100%);z-index:1}
@@ -94,7 +94,7 @@ nav.scrolled{background:rgba(13,31,60,.96);backdrop-filter:blur(14px);padding:14
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* ─── STATS BAR ─── */
+/* âââ STATS BAR âââ */
 .stats{background:var(--navy-deep);padding:64px 0;border-top:1px solid var(--gold-faint);border-bottom:1px solid var(--gold-faint)}
 .stats-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:0 32px}
 @media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:32px 0}}
@@ -105,7 +105,7 @@ nav.scrolled{background:rgba(13,31,60,.96);backdrop-filter:blur(14px);padding:14
 .stat-num sup{font-size:.5em;vertical-align:super;margin-left:2px;font-weight:400;color:var(--gold-light)}
 .stat-label{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-3);font-weight:500;line-height:1.4}
 
-/* ─── TRUSTED BY ─── */
+/* âââ TRUSTED BY âââ */
 .trusted{background:var(--navy);padding:90px 0;text-align:center;border-bottom:1px solid var(--gold-faint)}
 .trusted .section-mark{margin-bottom:32px}
 .trusted h2{font-family:var(--display);font-size:clamp(28px,3.6vw,40px);font-weight:400;color:var(--cream);margin-bottom:48px;letter-spacing:.01em;line-height:1.2}
@@ -119,7 +119,7 @@ nav.scrolled{background:rgba(13,31,60,.96);backdrop-filter:blur(14px);padding:14
 .trusted-plus{margin-top:46px;font-family:var(--display);font-style:italic;font-size:42px;color:var(--gold);font-weight:400;letter-spacing:.005em;line-height:1.15}
 @media(max-width:760px){.trusted-grid{gap:18px}.brand-card{min-width:160px;height:68px;padding:14px 22px}.brand-card svg{height:34px}.trusted-plus{font-size:28px;margin-top:32px}}
 
-/* ─── SECTION SHELL ─── */
+/* âââ SECTION SHELL âââ */
 section.s{padding:130px 0;position:relative}
 .container{max-width:1080px;margin:0 auto;padding:0 56px}
 .container-sm{max-width:780px;margin:0 auto;padding:0 56px}
@@ -136,17 +136,17 @@ section.s{padding:130px 0;position:relative}
 .prose p:last-child{margin-bottom:0}
 .prose strong{color:var(--cream);font-weight:500}
 
-/* ─── ALT SECTIONS ─── */
+/* âââ ALT SECTIONS âââ */
 .s-alt{background:var(--navy-deep)}
 .s-mid{background:var(--navy-mid)}
 
-/* ─── CREDENTIALS — two-column with gold center divider ─── */
+/* âââ CREDENTIALS â two-column with gold center divider âââ */
 .two-col{display:grid;grid-template-columns:1fr 1px 1fr;gap:64px;align-items:start}
 .two-col .divider{width:1px;background:var(--gold-faint);height:100%;justify-self:center;min-height:280px}
 @media(max-width:840px){.two-col{grid-template-columns:1fr;gap:48px}.two-col .divider{display:none}}
 .col-h{font-family:var(--display);font-size:22px;color:var(--gold);margin-bottom:18px;font-weight:500;letter-spacing:.005em}
 
-/* ─── OPPORTUNITY ─── */
+/* âââ OPPORTUNITY âââ */
 .case-card{background:var(--navy);border:1px solid var(--gold-line);padding:48px 56px;margin:48px 0;position:relative}
 .case-card::before,.case-card::after{content:'';position:absolute;width:14px;height:14px;border:1px solid var(--gold);background:var(--navy);transform:rotate(45deg)}
 .case-card::before{top:-7px;left:50%;margin-left:-7px}
@@ -158,9 +158,9 @@ section.s{padding:130px 0;position:relative}
 .benefits{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:24px 56px}
 @media(max-width:760px){.benefits{grid-template-columns:1fr;gap:18px}}
 .benefit{display:flex;gap:14px;padding-bottom:20px;border-bottom:1px solid var(--gold-faint);font-size:15px;line-height:1.6;color:var(--cream-2)}
-.benefit::before{content:'—';color:var(--gold);font-weight:300;flex-shrink:0}
+.benefit::before{content:'â';color:var(--gold);font-weight:300;flex-shrink:0}
 
-/* ─── WHAT WE DO ─── */
+/* âââ WHAT WE DO âââ */
 .services{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--gold-faint);border-left:1px solid var(--gold-faint);margin-top:24px}
 @media(max-width:760px){.services{grid-template-columns:1fr}}
 .service{padding:44px 36px;border-right:1px solid var(--gold-faint);border-bottom:1px solid var(--gold-faint);transition:background .3s}
@@ -169,14 +169,14 @@ section.s{padding:130px 0;position:relative}
 .service h3{font-family:var(--display);font-size:24px;font-weight:500;color:var(--cream);margin-bottom:12px;letter-spacing:.005em}
 .service p{font-family:var(--body);font-size:14px;line-height:1.7;color:var(--cream-2);font-weight:300}
 
-/* ─── FIT / COMMITMENT — bulleted lists ─── */
+/* âââ FIT / COMMITMENT â bulleted lists âââ */
 .list-block{max-width:680px;margin:0 auto}
 .list-row{padding:24px 0;border-bottom:1px solid var(--gold-faint);font-family:var(--serif);font-size:21px;line-height:1.5;color:var(--cream);font-weight:400;display:flex;gap:18px;align-items:baseline}
 .list-row:last-child{border-bottom:none}
-.list-row::before{content:'—';color:var(--gold);font-weight:400;font-size:18px;flex-shrink:0}
+.list-row::before{content:'â';color:var(--gold);font-weight:400;font-size:18px;flex-shrink:0}
 .list-foot{margin-top:34px;text-align:center;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--gold)}
 
-/* ─── ENGAGEMENT DETAILS — 3-column ─── */
+/* âââ ENGAGEMENT DETAILS â 3-column âââ */
 .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--gold-faint);border-bottom:1px solid var(--gold-faint);margin-top:24px}
 @media(max-width:760px){.three-col{grid-template-columns:1fr}}
 .detail{padding:48px 36px;text-align:center;border-right:1px solid var(--gold-faint)}
@@ -186,7 +186,7 @@ section.s{padding:130px 0;position:relative}
 .detail-body{font-family:var(--display);font-size:22px;color:var(--cream);font-weight:400;line-height:1.4}
 .detail-sub{font-family:var(--serif);font-style:italic;color:var(--cream-3);font-size:15px;margin-top:8px}
 
-/* ─── CONTACT ─── */
+/* âââ CONTACT âââ */
 .contact{background:var(--navy-deep);padding:130px 0;text-align:center}
 .contact .section-mark{margin-bottom:28px}
 .contact h2{font-family:var(--display);font-size:clamp(56px,8vw,96px);font-weight:400;color:var(--cream);margin-bottom:24px;letter-spacing:-.005em;line-height:1}
@@ -198,12 +198,49 @@ section.s{padding:130px 0;position:relative}
 .contact-info .sep{color:var(--gold-faint);font-size:18px}
 @media(max-width:760px){.contact-info{gap:14px}.contact-info .sep{display:none}}
 
-/* ─── FOOTER ─── */
+/* âââ FOOTER âââ */
 footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(--gold-faint);text-align:center}
 .footer-socials{display:flex;justify-content:center;gap:36px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-3);margin-bottom:26px;flex-wrap:wrap;font-weight:500}
 .footer-socials a:hover{color:var(--gold)}
 .footer-mark{font-family:var(--display);font-style:italic;color:var(--cream-3);font-size:14px;letter-spacing:.04em;margin-bottom:8px}
 .footer-copy{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-3);opacity:.6;font-weight:500}
+
+/* Admin Access Button */
+.admin-access {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.admin-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(13, 31, 60, 0.9);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  opacity: 0.7;
+}
+
+.admin-btn:hover {
+  background: var(--navy-deep);
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(200, 182, 136, 0.3);
+}
+
+.admin-icon {
+  display: block;
+  line-height: 1;
+}
 </style>
 </head>
 <body>
@@ -221,7 +258,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </nav>
 
-<!-- ─── HERO ─── -->
+<!-- âââ HERO âââ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -233,7 +270,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
     <div class="hero-tagline">Brand Growth Consulting<span class="sep">&middot;</span>Social Media Strategy</div>
     <div class="hero-contact">
       <a href="tel:6306992928">630-699-2928</a>
-      <span class="sep">·</span>
+      <span class="sep">Â·</span>
       <a href="https://youngwildme.com">youngwildme.com</a>
     </div>
     <div class="hero-cta">
@@ -243,7 +280,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </section>
 
-<!-- ─── STATS BAR ─── -->
+<!-- âââ STATS BAR âââ -->
 <section class="stats">
   <div class="stats-grid">
     <div class="stat"><div class="stat-num">1.5<sup>M</sup></div><div class="stat-label">Combined Followers</div></div>
@@ -253,7 +290,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </section>
 
-<!-- ─── TRUSTED BY ─── -->
+<!-- âââ TRUSTED BY âââ -->
 <section class="trusted">
   <div class="section-mark">Trusted By</div>
   <h2>Partnerships with names you know.</h2>
@@ -295,7 +332,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   <div class="trusted-plus">+ Fortune 500 Brands</div>
 </section>
 
-<!-- ─── CREDENTIALS ─── -->
+<!-- âââ CREDENTIALS âââ -->
 <section class="s" id="credentials">
   <div class="container-sm">
     <div class="section-head">
@@ -313,7 +350,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </section>
 
-<!-- ─── THE OPPORTUNITY ─── -->
+<!-- âââ THE OPPORTUNITY âââ -->
 <section class="s s-alt">
   <div class="container">
     <div class="section-head">
@@ -334,7 +371,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </section>
 
-<!-- ─── WHAT WE DO ─── -->
+<!-- âââ WHAT WE DO âââ -->
 <section class="s" id="engagement">
   <div class="container">
     <div class="section-head">
@@ -372,7 +409,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </section>
 
-<!-- ─── WHO THIS IS FOR ─── -->
+<!-- âââ WHO THIS IS FOR âââ -->
 <section class="s s-alt" id="fit">
   <div class="container-sm">
     <div class="section-head">
@@ -390,7 +427,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </section>
 
-<!-- ─── COMMITMENT ─── -->
+<!-- âââ COMMITMENT âââ -->
 <section class="s">
   <div class="container-sm">
     <div class="section-head">
@@ -406,7 +443,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </section>
 
-<!-- ─── ENGAGEMENT DETAILS ─── -->
+<!-- âââ ENGAGEMENT DETAILS âââ -->
 <section class="s s-alt">
   <div class="container">
     <div class="section-head">
@@ -433,7 +470,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
+<!-- âââ CONTACT âââ -->
 <section class="contact" id="contact">
   <div class="container-sm">
     <div class="section-mark">Get in Touch</div>
@@ -441,7 +478,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
     <div class="contact-sub">Meeting with select businesses ready to grow.</div>
     <div class="contact-info">
       <a href="mailto:Evan@socialcompassmedia.com">Evan@socialcompassmedia.com</a>
-      <span class="sep">·</span>
+      <span class="sep">Â·</span>
       <a href="tel:6306992928">630-699-2928</a>
     </div>
     <div class="diamond-row">
@@ -452,7 +489,7 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
+<!-- âââ FOOTER âââ -->
 <footer>
   <div class="footer-socials">
     <a href="https://instagram.com/youngwildmefamily">Instagram</a>
@@ -462,6 +499,24 @@ footer{background:var(--navy-deep);padding:50px 0 36px;border-top:1px solid var(
   </div>
   <div class="footer-mark">Evan Jones &middot; Social Compass Media</div>
   <div class="footer-copy">&copy; 2026 &middot; All Rights Reserved</div>
+
+  <!-- Admin Access Button -->
+  <div class="admin-access">
+    <button class="admin-btn" onclick="promptAdminAccess()" title="Administrative Access">
+      <span class="admin-icon">⚙</span>
+    </button>
+  </div>
+
+  <script>
+  function promptAdminAccess() {
+    const password = prompt('Enter admin password:');
+    if (password === '301212Emj!') {
+      window.location.href = '/admin/dispatch';
+    } else if (password !== null) {
+      alert('Incorrect password');
+    }
+  }
+  </script>
 </footer>
 
 <script>
