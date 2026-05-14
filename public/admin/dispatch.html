@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>Internal · Social Compass Media</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#091529;color:#F5F0E6;font-family:Inter,sans-serif;min-height:100vh;padding:40px 20px}
+.container{max-width:800px;margin:0 auto}
+h1{font-family:Georgia,serif;font-size:32px;margin-bottom:20px;color:#C8B688}
+.gate{text-align:center;padding:60px 20px}
+.gate input{padding:12px;margin:10px;background:transparent;border:1px solid #C8B688;color:#F5F0E6;font-size:16px}
+.gate button{padding:12px 24px;background:#C8B688;color:#091529;border:none;cursor:pointer;font-weight:bold}
+.app{display:none}
+.status{padding:20px;background:#152849;margin:20px 0;border-radius:4px}
+.btn{padding:12px 24px;background:#C8B688;color:#091529;border:none;cursor:pointer;margin:10px;font-weight:bold}
+.drop{border:2px dashed #C8B688;padding:40px;text-align:center;margin:20px 0;cursor:pointer}
+.drop:hover{background:rgba(200,182,136,0.1)}
+.drop input{display:none}
+</style>
+</head><body>
+
+<div class="container">
+  <div class="gate" id="gate">
+    <h1>Internal Access</h1>
+    <input type="password" id="pin" placeholder="Enter passcode" autofocus>
+    <button onclick="checkPin()">Unlock</button>
+    <div id="error" style="color:#E07A5F;margin-top:10px"></div>
+  </div>
+
+  <div class="app" id="app">
+    <h1>Email Dispatch Tool</h1>
+    <div class="status" id="status">Ready to process email campaigns</div>
+    
+    <label class="drop" onclick="document.getElementById('fileInput').click()">
+      <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" onchange="handleFile(event)">
+      Click to upload CSV or Excel file
+    </label>
+    
+    <button class="btn" onclick="testConnection()">Test Backend</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+let adminKey = null;
+
+async function checkPin() {
+  const pin = document.getElementById('pin').value;
+  if (!pin) return;
+  
+  try {
+    const response = await fetch('/api/check-pin', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({pin})
+    });
+    const data = await response.json();
+    
+    if (data.valid) {
+      adminKey = pin;
+      sessionStorage.setItem('scm_dispatch_pin', pin);
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+    } else {
+      document.getElementById('error').textContent = 'Incorrect passcode';
+    }
+  } catch (e) {
+    document.getElementById('error').textContent = 'Connection error';
+  }
+}
+
+// Check saved session
+if (sessionStorage.getItem('scm_dispatch_pin')) {
+  adminKey = sessionStorage.getItem('scm_dispatch_pin');
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+}
+
+function handleFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  const status = document.getElementById('status');
+  status.textContent = 'Processing ' + file.name + '...';
+  
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = new Uint8Array(e.target.result);
+      const workbook = XLSX.read(data, {type: 'array'});
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(sheet);
+      
+      const emailCol = Object.keys(rows[0]).find(k => /email/i.test(k));
+      const validEmails = rows.filter(r => r[emailCol] && r[emailCol].includes('@'));
+      
+      status.innerHTML = `
+        <strong>${rows.length}</strong> rows loaded<br>
+        <strong>${validEmails.length}</strong> with valid emails<br>
+        Email column: ${emailCol || 'Not detected'}<br><br>
+        <small>Basic parsing complete. Full interface coming soon.</small>
+      `;
+    } catch (err) {
+      status.textContent = 'Error parsing file: ' + err.message;
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+async function testConnection() {
+  const status = document.getElementById('status');
+  status.textContent = 'Testing backend connection...';
+  
+  try {
+    const response = await fetch('/api/check-pin', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({pin: adminKey})
+    });
+    
+    if (response.ok) {
+      status.innerHTML = '✓ Backend connection successful<br>✓ Ready for deployment';
+    } else {
+      status.textContent = 'Backend error';
+    }
+  } catch (e) {
+    status.textContent = 'Connection failed: ' + e.message;
+  }
+}
+</script>
+</body></html>
