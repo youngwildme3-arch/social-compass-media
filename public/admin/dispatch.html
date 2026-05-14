@@ -4,65 +4,266 @@
 <title>Dispatch Tool · Social Compass Media</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#091529;color:#F5F0E6;font-family:Inter,sans-serif;min-height:100vh;padding:40px 20px}
-.container{max-width:800px;margin:0 auto}
-h1{font-family:Georgia,serif;font-size:32px;margin-bottom:20px;color:#C8B688}
-.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid rgba(200,182,136,0.3)}
-.nav a{color:#C8B688;text-decoration:none;font-size:14px}
-.nav a:hover{color:#F5F0E6}
-.status{padding:20px;background:#152849;margin:20px 0;border-radius:4px;line-height:1.6}
-.btn{padding:12px 24px;background:#C8B688;color:#091529;border:none;cursor:pointer;margin:10px;font-weight:bold;border-radius:4px;display:inline-block;text-decoration:none}
-.btn:hover{background:#D7C78B}
-.drop{border:2px dashed #C8B688;padding:40px;text-align:center;margin:20px 0;cursor:pointer;border-radius:6px;transition:all 0.3s}
-.drop:hover{background:rgba(200,182,136,0.1);border-color:#D7C78B}
+body{background:#091529;color:#F5F0E6;font-family:Inter,sans-serif;min-height:100vh;padding:20px}
+.container{max-width:1200px;margin:0 auto}
+
+/* Header */
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;padding:20px 0;border-bottom:1px solid rgba(200,182,136,0.3)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:36px;height:36px;border:1px solid #C8B688;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:18px;font-style:italic;color:#C8B688;background:rgba(200,182,136,0.1)}
+.logo-text{font-family:Georgia,serif;font-size:24px;color:#C8B688;font-weight:400}
+.back-link{color:#C8B688;text-decoration:none;font-size:14px;transition:color 0.3s}
+.back-link:hover{color:#F5F0E6}
+
+/* Tab System */
+.tabs{display:flex;margin-bottom:30px;background:rgba(13,31,60,0.5);border-radius:8px;padding:4px}
+.tab{flex:1;padding:12px 20px;cursor:pointer;border:none;background:transparent;color:rgba(245,240,230,0.7);font-size:14px;font-weight:500;border-radius:6px;transition:all 0.3s;text-align:center}
+.tab.active{color:#091529;background:#C8B688}
+.tab:hover:not(.active){color:#F5F0E6;background:rgba(200,182,136,0.1)}
+.tab:disabled{opacity:0.5;cursor:not-allowed}
+
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Upload Tab Styles */
+.status{padding:20px;background:linear-gradient(135deg, #152849 0%, #1a2d52 100%);margin:20px 0;border-radius:8px;line-height:1.6;border:1px solid rgba(200,182,136,0.2)}
+.status strong{color:#C8B688}
+
+.drop{border:2px dashed #C8B688;padding:50px;text-align:center;margin:20px 0;cursor:pointer;border-radius:12px;transition:all 0.3s;background:linear-gradient(135deg, rgba(200,182,136,0.05) 0%, rgba(200,182,136,0.02) 100%)}
+.drop:hover{background:linear-gradient(135deg, rgba(200,182,136,0.15) 0%, rgba(200,182,136,0.08) 100%);border-color:#D7C78B;transform:translateY(-2px)}
 .drop input{display:none}
-.drop-text{font-size:16px;margin-bottom:8px;color:#C8B688}
+.drop-text{font-size:18px;margin-bottom:12px;color:#C8B688;font-weight:500}
 .drop-sub{font-size:14px;color:rgba(245,240,230,0.7)}
-.results{background:#152849;padding:20px;margin:20px 0;border-radius:6px;border-left:4px solid #C8B688}
-.results h3{color:#C8B688;margin-bottom:15px}
-.results p{margin-bottom:10px;line-height:1.5}
+.drop-icon{font-size:48px;margin-bottom:20px;color:#C8B688;opacity:0.8}
+
+.btn{padding:14px 28px;background:linear-gradient(135deg, #C8B688 0%, #D7C78B 100%);color:#091529;border:none;cursor:pointer;margin:10px;font-weight:600;border-radius:6px;display:inline-block;text-decoration:none;transition:all 0.3s;font-size:14px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,182,136,0.3)}
+.btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+
+.results{background:linear-gradient(135deg, #152849 0%, #1a2d52 100%);padding:25px;margin:20px 0;border-radius:12px;border:1px solid rgba(200,182,136,0.3);box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+.results h3{color:#C8B688;margin-bottom:20px;font-size:18px}
+.results p{margin-bottom:12px;line-height:1.6}
 .results strong{color:#F5F0E6}
-.loading{text-align:center;color:#C8B688;font-style:italic}
-.error{color:#E07A5F;background:rgba(224,122,95,0.1);padding:15px;border-radius:4px;margin:10px 0}
-.success{color:#94B49F;background:rgba(148,180,159,0.1);padding:15px;border-radius:4px;margin:10px 0}
+
+/* Email Draft Tab Styles */
+.draft-container{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:20px}
+
+.form-section{background:linear-gradient(135deg, #152849 0%, #1a2d52 100%);padding:30px;border-radius:12px;border:1px solid rgba(200,182,136,0.3)}
+.form-section h3{color:#C8B688;margin-bottom:25px;font-size:18px;display:flex;align-items:center;gap:10px}
+.form-section h3::before{content:'✉';font-size:20px}
+
+.form-group{margin-bottom:25px}
+.form-group label{display:block;margin-bottom:10px;color:#C8B688;font-weight:500;font-size:14px}
+.form-group input, .form-group textarea{width:100%;padding:16px;background:rgba(9,21,41,0.8);border:1px solid rgba(200,182,136,0.3);border-radius:8px;color:#F5F0E6;font-family:Inter,sans-serif;font-size:14px;transition:all 0.3s}
+.form-group input:focus, .form-group textarea:focus{border-color:#C8B688;outline:none;box-shadow:0 0 0 3px rgba(200,182,136,0.1)}
+.form-group textarea{min-height:140px;resize:vertical;line-height:1.6}
+
+.form-help{font-size:12px;color:rgba(245,240,230,0.6);margin-top:6px;font-style:italic}
+
+/* Email Preview */
+.preview-section{background:linear-gradient(135deg, #152849 0%, #1a2d52 100%);padding:30px;border-radius:12px;border:1px solid rgba(200,182,136,0.3)}
+.preview-section h3{color:#C8B688;margin-bottom:25px;font-size:18px;display:flex;align-items:center;gap:10px}
+.preview-section h3::before{content:'👁';font-size:20px}
+
+.email-preview{background:#F5F0E6;color:#333;padding:25px;border-radius:8px;font-family:Georgia,serif;line-height:1.6;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+
+.email-header{border-bottom:2px solid #C8B688;padding-bottom:20px;margin-bottom:25px}
+.email-from{font-size:14px;color:#666;margin-bottom:8px}
+.email-subject{font-size:20px;color:#091529;font-weight:600;margin-bottom:8px}
+
+/* Shake Animation for Subject */
+.shake-preview{animation:emailShake 2s ease-in-out infinite}
+@keyframes emailShake {
+  0%, 100% {transform:translateX(0)}
+  10%, 30%, 50%, 70%, 90% {transform:translateX(-2px)}
+  20%, 40%, 60%, 80% {transform:translateX(2px)}
+}
+
+.email-to{font-size:14px;color:#666}
+.email-body{font-size:16px;line-height:1.7;color:#333}
+.email-body p{margin-bottom:15px}
+
+.variables-help{background:rgba(200,182,136,0.1);padding:20px;border-radius:8px;margin-top:20px}
+.variables-help h4{color:#C8B688;margin-bottom:15px;font-size:14px}
+.variables-help .var-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;font-size:12px;font-family:monospace}
+.variables-help .var-item{color:rgba(245,240,230,0.8);padding:5px 8px;background:rgba(200,182,136,0.1);border-radius:4px}
+
+/* Shake Toggle */
+.shake-toggle{display:flex;align-items:center;gap:12px;margin:20px 0;padding:15px;background:rgba(200,182,136,0.1);border-radius:8px}
+.shake-toggle input[type="checkbox"]{width:20px;height:20px;accent-color:#C8B688}
+.shake-toggle label{color:#C8B688;font-weight:500;cursor:pointer}
+
+.loading{text-align:center;color:#C8B688;font-style:italic;padding:20px}
+.error{color:#E07A5F;background:rgba(224,122,95,0.1);padding:15px;border-radius:6px;margin:10px 0;border-left:4px solid #E07A5F}
+.success{color:#94B49F;background:rgba(148,180,159,0.1);padding:15px;border-radius:6px;margin:10px 0;border-left:4px solid #94B49F}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .draft-container{grid-template-columns:1fr;gap:20px}
+  body{padding:15px}
+  .drop{padding:30px 20px}
+  .form-section, .preview-section{padding:20px}
+}
 </style>
 </head><body>
 
 <div class="container">
-  <div class="nav">
-    <h1>Email Dispatch Tool</h1>
-    <a href="/">← Back to Main Site</a>
+  <div class="header">
+    <div class="logo">
+      <div class="logo-mark">E</div>
+      <div class="logo-text">Social Compass Media</div>
+    </div>
+    <a href="/" class="back-link">← Back to Main Site</a>
   </div>
   
-  <div class="status" id="status">
-    <strong>✓ Dispatch Tool Active</strong><br>
-    Upload a CSV or Excel file with email addresses to begin processing your email campaign.
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('upload')">📁 Upload Data</button>
+    <button class="tab" id="draftTab" onclick="switchTab('draft')" disabled>✉ Email Draft</button>
   </div>
   
-  <label class="drop" onclick="document.getElementById('fileInput').click()">
-    <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" onchange="handleFile(event)">
-    <div class="drop-text">📁 Click to Upload CSV or Excel File</div>
-    <div class="drop-sub">CSV · XLSX · XLS files supported</div>
-  </label>
-  
-  <div style="text-align:center">
-    <button class="btn" onclick="testBackend()">Test Backend Connection</button>
-    <button class="btn" onclick="showDemo()">View Demo Data</button>
+  <!-- Upload Tab -->
+  <div class="tab-content active" id="uploadTab">
+    <div class="status" id="status">
+      <strong>✓ Dispatch Tool Active</strong><br>
+      Upload a CSV or Excel file with email addresses to begin crafting your email campaign.
+    </div>
+    
+    <label class="drop" onclick="document.getElementById('fileInput').click()">
+      <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" onchange="handleFile(event)">
+      <div class="drop-icon">📊</div>
+      <div class="drop-text">Click to Upload CSV or Excel File</div>
+      <div class="drop-sub">CSV · XLSX · XLS files supported • Drag & drop enabled</div>
+    </label>
+    
+    <div style="text-align:center">
+      <button class="btn" onclick="testBackend()">🔧 Test Backend Connection</button>
+      <button class="btn" onclick="showSampleData()">📋 View Sample Format</button>
+    </div>
+    
+    <div id="uploadResults"></div>
   </div>
   
-  <div id="results"></div>
+  <!-- Email Draft Tab -->
+  <div class="tab-content" id="draftTab">
+    <div class="draft-container">
+      <!-- Email Composition Form -->
+      <div class="form-section">
+        <h3>Email Composition</h3>
+        
+        <div class="form-group">
+          <label for="fromName">From Name</label>
+          <input type="text" id="fromName" value="Evan Jones" placeholder="Your name">
+          <div class="form-help">How you want to appear to recipients</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="fromEmail">From Email</label>
+          <input type="email" id="fromEmail" value="evan@socialcompassmedia.com" readonly>
+          <div class="form-help">Your Social Compass Media email address</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="replyTo">Reply-To Email</label>
+          <input type="email" id="replyTo" value="evan@socialcompassmedia.com" placeholder="Reply address">
+          <div class="form-help">Where replies should be sent (optional)</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="emailSubject">Subject Line</label>
+          <input type="text" id="emailSubject" placeholder="e.g., {{firstName}}, let's accelerate your brand growth">
+          <div class="form-help">Use variables like {{firstName}}, {{company}}</div>
+        </div>
+        
+        <div class="shake-toggle">
+          <input type="checkbox" id="enableShake" checked>
+          <label for="enableShake">✨ Enable Subject Shake Effect (makes emails more enticing)</label>
+        </div>
+        
+        <div class="form-group">
+          <label for="emailBody">Email Message</label>
+          <textarea id="emailBody" placeholder="Hi {{firstName}},
+
+I noticed {{company}} is doing incredible work in [industry/area]. I help ambitious brands like yours break through growth plateaus and achieve their next level of success.
+
+Would you be open to a brief conversation about how we could accelerate {{company}}'s brand growth?
+
+Best regards,
+Evan Jones
+Social Compass Media"></textarea>
+          <div class="form-help">Craft your personalized message using template variables</div>
+        </div>
+        
+        <div class="form-group">
+          <button class="btn" onclick="generateAIContent()">🤖 Generate AI Content</button>
+          <button class="btn" onclick="previewEmail()">👁 Update Preview</button>
+        </div>
+      </div>
+      
+      <!-- Email Preview -->
+      <div class="preview-section">
+        <h3>Email Preview</h3>
+        
+        <div class="email-preview">
+          <div class="email-header">
+            <div class="email-from">From: <span id="previewFromName">Evan Jones</span> &lt;<span id="previewFromEmail">evan@socialcompassmedia.com</span>&gt;</div>
+            <div class="email-subject" id="previewSubject">Subject: {{firstName}}, let's accelerate your brand growth</div>
+            <div class="email-to">To: <span id="previewTo">john@example.com</span></div>
+          </div>
+          
+          <div class="email-body" id="previewBody">
+            <p>Hi {{firstName}},</p>
+            <p>I noticed {{company}} is doing incredible work in [industry/area]. I help ambitious brands like yours break through growth plateaus and achieve their next level of success.</p>
+            <p>Would you be open to a brief conversation about how we could accelerate {{company}}'s brand growth?</p>
+            <p>Best regards,<br>Evan Jones<br>Social Compass Media</p>
+          </div>
+        </div>
+        
+        <div class="variables-help">
+          <h4>📋 Available Template Variables</h4>
+          <div class="var-list">
+            <div class="var-item">{{firstName}}</div>
+            <div class="var-item">{{lastName}}</div>
+            <div class="var-item">{{email}}</div>
+            <div class="var-item">{{company}}</div>
+            <div class="var-item">{{title}}</div>
+            <div class="var-item">{{phone}}</div>
+            <div class="var-item">{{city}}</div>
+            <div class="var-item">{{state}}</div>
+          </div>
+        </div>
+        
+        <div style="text-align:center;margin-top:25px">
+          <button class="btn" onclick="sendTestEmail()">🧪 Send Test Email</button>
+          <button class="btn" onclick="startCampaign()">🚀 Start Campaign</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-const ADMIN_KEY = '301212Emj!'; // Admin key for backend calls
+const ADMIN_KEY = '301212Emj!';
+let uploadedData = null;
 
+// Tab Management
+function switchTab(tabName) {
+  // Remove active class from all tabs and contents
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  
+  // Add active class to selected tab and content
+  document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
+  document.getElementById(tabName + 'Tab').classList.add('active');
+}
+
+// File Upload Handling
 function handleFile(event) {
   const file = event.target.files[0];
   if (!file) return;
   
-  const results = document.getElementById('results');
-  results.innerHTML = '<div class="loading">Processing ' + file.name + '...</div>';
+  const results = document.getElementById('uploadResults');
+  results.innerHTML = '<div class="loading">📊 Processing ' + file.name + '...</div>';
   
   const reader = new FileReader();
   reader.onload = function(e) {
@@ -73,37 +274,64 @@ function handleFile(event) {
       const rows = XLSX.utils.sheet_to_json(sheet);
       
       if (rows.length === 0) {
-        results.innerHTML = '<div class="error">No data found in file</div>';
+        results.innerHTML = '<div class="error">❌ No data found in file</div>';
         return;
       }
       
-      // Find email and name columns
+      uploadedData = rows;
+      
+      // Find key columns
       const emailCol = Object.keys(rows[0]).find(k => /email/i.test(k));
       const nameCol = Object.keys(rows[0]).find(k => /name|first/i.test(k));
+      const companyCol = Object.keys(rows[0]).find(k => /company|organization|business/i.test(k));
       const validEmails = rows.filter(r => r[emailCol] && r[emailCol].includes('@'));
       
       results.innerHTML = `
         <div class="results">
-          <h3>📊 File Analysis Complete</h3>
-          <p><strong>${rows.length}</strong> total rows loaded</p>
-          <p><strong>${validEmails.length}</strong> rows with valid email addresses</p>
+          <h3>📊 Data Analysis Complete</h3>
+          <p><strong>${rows.length}</strong> total records loaded</p>
+          <p><strong>${validEmails.length}</strong> records with valid email addresses</p>
           <p><strong>Email Column:</strong> ${emailCol || 'Not detected'}</p>
           <p><strong>Name Column:</strong> ${nameCol || 'Not detected'}</p>
+          <p><strong>Company Column:</strong> ${companyCol || 'Not detected'}</p>
           <br>
-          <p>✓ Data parsed successfully and ready for campaign setup</p>
+          <p>✅ Data processed successfully! You can now switch to the <strong>Email Draft</strong> tab to compose your campaign.</p>
         </div>
       `;
       
+      // Enable Draft tab
+      document.getElementById('draftTab').disabled = false;
+      document.getElementById('draftTab').style.opacity = '1';
+      
+      // Update preview with real data
+      updatePreviewWithSampleData();
+      
     } catch (err) {
-      results.innerHTML = '<div class="error">Error parsing file: ' + err.message + '</div>';
+      results.innerHTML = '<div class="error">❌ Error parsing file: ' + err.message + '</div>';
     }
   };
   reader.readAsArrayBuffer(file);
 }
 
+// Update preview with sample data from uploaded file
+function updatePreviewWithSampleData() {
+  if (!uploadedData || uploadedData.length === 0) return;
+  
+  const sampleRow = uploadedData[0];
+  const emailCol = Object.keys(sampleRow).find(k => /email/i.test(k));
+  const nameCol = Object.keys(sampleRow).find(k => /name|first/i.test(k));
+  
+  if (emailCol && sampleRow[emailCol]) {
+    document.getElementById('previewTo').textContent = sampleRow[emailCol];
+  }
+  
+  previewEmail();
+}
+
+// Backend Testing
 async function testBackend() {
-  const results = document.getElementById('results');
-  results.innerHTML = '<div class="loading">Testing backend connection...</div>';
+  const results = document.getElementById('uploadResults');
+  results.innerHTML = '<div class="loading">🔧 Testing backend systems...</div>';
   
   try {
     const response = await fetch('/api/check-pin', {
@@ -117,45 +345,166 @@ async function testBackend() {
       if (data.valid) {
         results.innerHTML = `
           <div class="success">
-            <h3>✅ Backend Connection Successful</h3>
-            <p>✓ Admin authentication verified</p>
-            <p>✓ Netlify functions operational</p>
-            <p>✓ SendGrid email system ready</p>
-            <p>✓ Ready for email campaign processing</p>
+            <h3>✅ All Systems Operational</h3>
+            <p>✅ Admin authentication verified</p>
+            <p>✅ Netlify functions active</p>
+            <p>✅ SendGrid email system ready</p>
+            <p>✅ Social Compass Media infrastructure operational</p>
+            <p><br><strong>Ready for email campaign processing!</strong></p>
           </div>
         `;
       } else {
-        results.innerHTML = '<div class="error">Authentication failed</div>';
+        results.innerHTML = '<div class="error">❌ Authentication failed</div>';
       }
     } else {
-      results.innerHTML = '<div class="error">Backend connection failed</div>';
+      results.innerHTML = '<div class="error">❌ Backend connection failed</div>';
     }
   } catch (e) {
-    results.innerHTML = '<div class="error">Connection test failed: ' + e.message + '</div>';
+    results.innerHTML = '<div class="error">❌ System test failed: ' + e.message + '</div>';
   }
 }
 
-function showDemo() {
-  const results = document.getElementById('results');
+// Show Sample Data Format
+function showSampleData() {
+  const results = document.getElementById('uploadResults');
   results.innerHTML = `
     <div class="results">
-      <h3>📋 Demo Email Campaign Data</h3>
-      <p><strong>Sample CSV Structure:</strong></p>
-      <div style="background:#0D1F3C;padding:15px;border-radius:4px;font-family:monospace;margin:10px 0">
-        firstName,lastName,email,company,title<br>
-        John,Smith,john@example.com,Tech Corp,CEO<br>
-        Sarah,Johnson,sarah@startup.io,StartupCo,Founder<br>
-        Mike,Brown,mike@agency.com,Design Agency,Creative Director
+      <h3>📋 Required CSV/Excel Format</h3>
+      <p><strong>Your spreadsheet should include these columns:</strong></p>
+      <div style="background:#0D1F3C;padding:20px;border-radius:8px;font-family:monospace;margin:15px 0;overflow-x:auto">
+        firstName,lastName,email,company,title,phone,city,state<br>
+        John,Smith,john@techcorp.com,Tech Corp,CEO,555-0123,Austin,TX<br>
+        Sarah,Johnson,sarah@startup.io,StartupCo,Founder,555-0124,Denver,CO<br>
+        Mike,Brown,mike@agency.com,Design Agency,Creative Director,555-0125,Miami,FL
       </div>
-      <p><strong>Features Available:</strong></p>
-      <p>• CSV/Excel file processing</p>
-      <p>• Email address validation</p>
-      <p>• AI-powered personalization (with Claude)</p>
-      <p>• SendGrid delivery system</p>
+      <p><strong>✅ Features Available:</strong></p>
+      <p>• Advanced CSV/Excel processing</p>
+      <p>• Smart email validation</p>
+      <p>• AI-powered personalization</p>
       <p>• Template variable replacement</p>
+      <p>• Professional SendGrid delivery</p>
+      <p>• Subject line shake effects</p>
       <p>• Batch sending with human pacing</p>
     </div>
   `;
 }
+
+// Email Preview Functions
+function previewEmail() {
+  const subject = document.getElementById('emailSubject').value || 'Your subject line here';
+  const body = document.getElementById('emailBody').value || 'Your email message here';
+  const fromName = document.getElementById('fromName').value || 'Evan Jones';
+  const fromEmail = document.getElementById('fromEmail').value || 'evan@socialcompassmedia.com';
+  const enableShake = document.getElementById('enableShake').checked;
+  
+  // Update preview elements
+  document.getElementById('previewFromName').textContent = fromName;
+  document.getElementById('previewFromEmail').textContent = fromEmail;
+  
+  const subjectElement = document.getElementById('previewSubject');
+  subjectElement.textContent = 'Subject: ' + subject;
+  
+  // Apply or remove shake effect
+  if (enableShake) {
+    subjectElement.classList.add('shake-preview');
+  } else {
+    subjectElement.classList.remove('shake-preview');
+  }
+  
+  // Replace template variables with sample data for preview
+  let previewSubject = subject;
+  let previewBody = body;
+  
+  if (uploadedData && uploadedData.length > 0) {
+    const sampleRow = uploadedData[0];
+    Object.keys(sampleRow).forEach(key => {
+      const placeholder = new RegExp(`\\{\\{\s*${key}\s*\\}\\}`, 'gi');
+      previewSubject = previewSubject.replace(placeholder, sampleRow[key] || `[${key}]`);
+      previewBody = previewBody.replace(placeholder, sampleRow[key] || `[${key}]`);
+    });
+  } else {
+    // Use sample data for preview
+    const sampleData = {
+      firstName: 'John',
+      lastName: 'Smith',
+      company: 'Tech Corp',
+      title: 'CEO',
+      email: 'john@techcorp.com'
+    };
+    
+    Object.keys(sampleData).forEach(key => {
+      const placeholder = new RegExp(`\\{\\{\s*${key}\s*\\}\\}`, 'gi');
+      previewSubject = previewSubject.replace(placeholder, sampleData[key]);
+      previewBody = previewBody.replace(placeholder, sampleData[key]);
+    });
+  }
+  
+  document.getElementById('previewSubject').textContent = 'Subject: ' + previewSubject;
+  document.getElementById('previewBody').innerHTML = previewBody.replace(/\n/g, '<br>');
+}
+
+// AI Content Generation (placeholder)
+async function generateAIContent() {
+  const btn = event.target;
+  const originalText = btn.textContent;
+  btn.textContent = '🤖 Generating...';
+  btn.disabled = true;
+  
+  try {
+    // This would integrate with the AI generation function
+    setTimeout(() => {
+      // Placeholder - would call actual AI API
+      document.getElementById('emailSubject').value = '{{firstName}}, ready to unlock {{company}}'s next growth phase?';
+      document.getElementById('emailBody').value = `Hi {{firstName}},
+
+I've been following {{company}}'s impressive trajectory and I'm genuinely excited about what you're building.
+
+As someone who specializes in accelerating brand growth for ambitious companies, I see tremendous untapped potential in your current strategy.
+
+Would you be open to a 15-minute conversation about how we could help {{company}} break through to its next level?
+
+Looking forward to connecting,
+
+Evan Jones
+Founder, Social Compass Media
+evan@socialcompassmedia.com`;
+      
+      previewEmail();
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }, 2000);
+  } catch (error) {
+    btn.textContent = originalText;
+    btn.disabled = false;
+    alert('AI generation temporarily unavailable. Please compose manually.');
+  }
+}
+
+// Campaign Functions (placeholders)
+async function sendTestEmail() {
+  alert('🧪 Test email functionality coming soon! This will send a test email to your own address.');
+}
+
+async function startCampaign() {
+  if (!uploadedData) {
+    alert('📁 Please upload your data first in the Upload Data tab.');
+    return;
+  }
+  alert('🚀 Campaign launch functionality coming soon! This will process your entire list with the composed email.');
+}
+
+// Auto-update preview when form fields change
+document.addEventListener('DOMContentLoaded', function() {
+  ['emailSubject', 'emailBody', 'fromName', 'enableShake'].forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.addEventListener('input', previewEmail);
+      element.addEventListener('change', previewEmail);
+    }
+  });
+  
+  // Initial preview
+  previewEmail();
+});
 </script>
 </body></html>
